@@ -15,7 +15,6 @@
 > - [SerializeField]写于变量前，可将protected、private变量在Unity的Editor中呈现，并进行操作 
 > - [Menuitem("按钮")]后接function，可以实现Unity的Editor中按钮调用function 
 > - Unity中Animation Event的调用时间，实际为上一帧动画结束的时刻，调用时SpriteRender还显示为上一帧的Sprite 
-> - 
 > - LayerMask 不同层级之间是bit移位的关系 00000101表示LayerMask 3和1层：
 > ```C#
 >   int Layer1 = 3;
@@ -52,12 +51,55 @@
 >   public class Walk: Action //走动，继承动作
 >   {
 >       public new float weight;    //利用new关键字隐藏基类中的成员
->       private float _speed{get; private set};     //get、set增加对读写的控制(暂不甚解)
+>       public float Speed{get; private set};     //get、set增加对读写的控制(暂不甚解)
 >       public override void Move()   //重写Move
 >       {
 >           ...// do sth, 可在此处访问_speed
 >       }
 >   }
 > ```
+---
+## 入职第二三周
+上周好像没有意识到休息就过去了。。既然如此，就在今天把这两周一起retro一下吧 
+> - 上周work内容！ zombie关卡反复修改，达到勉强完整的地步 
+> - 本周work：AutoZombie移动sync优化，Gas替换Arrow，新小关卡与复原初步实现 
+> - 本周遗留问题： 复原表现效果、ZombieLift还原方案 
+--- 
+> - Input System Package: InputMap的简易使用 
+> - Editor与EditorWindow类用以扩展编辑器 
+```C#
+public class DiyEditor: Editor
+{
+    public override void OnInspectorGUI()
+    {
+        ···//扩展Inspector
+    }
 
-> 
+     public void OnSceneGUI()
+    {
+        ··· //在Scene中定义控件等
+    }
+
+    ···
+}
+
+public class DiyEditor: EditorWindow
+{
+    [MenuItem("Window/DiyEditor")]  //添加菜单项
+    static void Init()
+    {
+        DiyEditor _myWindow = EidtorWindow.GetWindow(typeof(DiyEditor));
+        _myWindow.Show();
+        //创建自定义窗口
+    }
+
+    void OnGUI()
+    {
+        ···//定义Editor窗口内的控件与功能
+    }
+
+    ···
+}
+```
+> - 利用ScriptableObject实现数据持久化或存档（使用Manager管理ScriptbleObject对象），也可使用DontDestroyOnload(this)，以在关卡Reload后不丢失数据 
+> - 
