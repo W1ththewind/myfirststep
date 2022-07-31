@@ -59,7 +59,7 @@
 >   }
 > ```
 ---
-## 入职第二三周
+## 入职二三周
 上周好像没有意识到休息就过去了。。既然如此，就在今天把这两周一起retro一下吧 
 > - 上周work内容！ zombie关卡反复修改，达到勉强完整的地步 
 > - 本周work：AutoZombie移动sync优化，Gas替换Arrow，新小关卡与复原初步实现 
@@ -102,4 +102,15 @@ public class DiyEditor: EditorWindow
 }
 ```
 > - 利用ScriptableObject实现数据持久化或存档（使用Manager管理ScriptbleObject对象），也可使用DontDestroyOnload(this)，以在关卡Reload后不丢失数据 
-> - 
+## 入职第四周
+本周加班周，又更新了zombie关卡的版本，也在某人的全程督导下垒起了复原关卡。因为贪图省事而坚持睡在办公室3天，和去年没有变的是仍然会有打不尽的蚊子。  
+这一周几乎没有产出什么集中的代码，只是在Fews的基础上略有增改  
+而成为fews我还需要。。。
+> - 开发unity需求的辅助工具，了解更多第三方库与插件
+> - 逻辑层GamePlay能力的提高
+> - 对unity物理引擎有更深刻的理解
+> - 了解基础的技术美术知识
+> - unity保存数据系列流程
+> - 学习更多UI Canvas等的知识
+> - 逐步体会性能的优化需求
+> - 跨平台开发
